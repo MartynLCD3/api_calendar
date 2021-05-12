@@ -11,7 +11,6 @@ const router = express.Router();
 app.use(express.urlencoded({extended:true}));
 app.use(cors());
 
-/**Routes**/
 router.get('/',(req,res)=>{
    res.json({msg:"ok"});
 });
@@ -28,7 +27,6 @@ router.delete('/:_id',cors(),(req,res)=>{
    delEvent(req,res);
 });
 
-// update event
 router.put('/:_id',cors(),(req,res)=>{
    updEvent(req,res);
 });
