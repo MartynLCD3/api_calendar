@@ -9,5 +9,6 @@ export const newEvent = (req,res) => {
     description:description,
     color:color
   }
-  create_event(info,res);
+  create_event(info);
+  res.status(200).json({msg:"ok"});
 }
