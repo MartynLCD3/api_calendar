@@ -1,7 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import {connection} from './config/connection.js';
+import {getEvents} from './controllers/getEvents.js';
 import {newEvent} from './controllers/newEvent.js';
+import {delEvent} from './controllers/delEvent.js';
+import {updEvent} from './controllers/updEvent.js';
 
 const app = express();
 const router = express.Router();
@@ -10,19 +13,25 @@ app.use(cors());
 
 /**Routes**/
 router.get('/',(req,res)=>{
-  res.json({msg:"ok"});
+   res.json({msg:"ok"});
 });
 
-// add event
 router.post('/new_event',cors(),(req,res)=>{
-  newEvent(req,res);
+   newEvent(req,res);
 });
 
-// read event
+router.get('/get_events',cors(),(req,res)=>{
+   getEvents(res);
+});
 
-// delete event
+router.delete('/:_id',cors(),(req,res)=>{
+   delEvent(req,res);
+});
 
 // update event
+router.put('/:_id',cors(),(req,res)=>{
+   updEvent(req,res);
+});
 
 app.use('/api',router);
 app.get('*',(req,res)=>{
