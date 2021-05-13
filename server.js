@@ -9,6 +9,7 @@ import {updEvent} from './controllers/updEvent.js';
 const app = express();
 const router = express.Router();
 app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 app.use(cors());
 
 router.get('/',(req,res)=>{
