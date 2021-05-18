@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 const eventSchema = new mongoose.Schema({
+  idEvent: String,
   name: String,
   start: String,
   end: String,
